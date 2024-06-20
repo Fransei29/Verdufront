@@ -1,13 +1,593 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.9fr 0.9fr 0.9fr 0.7fr 1fr 0.4fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: 
+  "bienve bienve img1 img1" 
+  "Nosotros Nosotros Nosotros Nosotros"
+  "Cart Cart Cart Cart"
+  "imgback imgback imgback imgback" 
+  "segui segui segui segui" 
+  "footer footer footer footer";
 }
+
+.Cart {
+  grid-area: Cart;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: antiquewhite;
+}
+
+.productList {
+  display: flex;
+  flex-direction: row;
+  
+}
+.asi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  transition: transform 0.3s ease;
+  
+} 
+
+.asi:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.imgProduct {
+  width: 150px;
+  height: 150px;
+}
+
+.tienda, .tiendab{
+  background-color:rgba(43, 118, 43, 0.5);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+ }
+
+.bienve, .img1 {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 246, 210);
+  width: 100%;
+  height: 100vh;
+  grid-area: bienve;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 23px;
+}
+
+.bienvee {
+  display: inline-block;
+  margin: 0;
+  padding-left: 7%;
+  color: rgb(51, 110, 51);
+}
+
+h2 {
+  display: inline-block;
+  margin: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: rgb(63, 119, 63);
+}
+
+.img11 {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.Nosotros {
+  position: relative;
+  color: black;
+}
+
+.Nosotros:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/img/mano-fruta-sana-dibujada-textura-fluida_1284-52004.avif');
+  background-size: 50%;
+  opacity: 0.1;
+}
+
+.Nosotros {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  grid-area: Nosotros;
+  background-color: rgb(249, 250, 196, 0.4);
+}
+
+.Noso, .Nosot > * {
+  position: relative;
+  z-index: 1;
+}
+
+.Nosot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding-left: 35%;
+}
+
+.Noso {
+  font-size: 20px;
+  color: rgb(82, 80, 80);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 13%;
+  padding-right: 13%;
+  padding-top: 6%;
+  padding-bottom: 5%;
+  height: 100%;
+  margin-top: 0;
+}
+
+.contno {
+  height: auto;
+  width: 100%;
+  border-radius: 10%;
+  font-size: 18px;
+  color: rgb(66, 65, 65);
+}
+
+.fot2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 340px;
+  height: 320px;
+  position: absolute;
+  margin-top: 5%;
+}
+
+.let {
+  text-align: center;
+  position: relative;
+  margin-top: 3%;
+  color: #1b681d;
+}
+.let::before,
+.let::after {
+    content: ""; /* Necesario para generar contenido en el pseudo-elemento */
+    position: absolute; /* Permite posicionar el elemento */
+    left: 0; /* Ubica el pseudo-elemento desde el borde izquierdo */
+    right: 0; /* Ubica el pseudo-elemento hasta el borde derecho */
+    height: 2px; /* Grosor de la línea */
+    background-color: rgb(13, 68, 20);
+    left: -5%; /* Modifica según la anchura que desees para las líneas */
+    right: -5%; }
+    .let::before {
+      top: 0; /* Ubica la línea encima del texto */
+  }
+  
+  .let::after {
+      bottom: 0; /* Ubica la línea debajo del texto */
+  }
+
+.let1 {
+  color: #29752b;
+  font-size: 21px;
+}
+
+img {
+  border-radius: 10px;
+}
+
+.img1 {
+  grid-area: img1;
+}
+
+.imgback {
+  background-image: url("../public/img/mujeee");
+  background-attachment: fixed;
+  background-size: cover;
+  height: auto;
+  width: 100%;
+  grid-area: imgback;
+}
+
+.segui {
+  grid-area: segui;
+  position: relative;
+}
+
+.segui:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../public/img/mano-fruta-sana-dibujada-textura-fluida_1284-52004.avif");
+  background-size: 50%;
+  opacity: 0.1;
+}
+
+.footer {
+  background-color: #1b681d;
+  grid-area: footer;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.contenedorfo {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  align-content: center;
+  font-family:sans-serif;
+}
+.tate {
+  color: white;
+  font-size: 25px;
+}
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+li {
+  padding: 12px 0;
+}
+
+.desktop {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  height: 18vh;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(39, 87, 34);
+  z-index: 5;
+  font-size: 20px;
+  
+}
+
+nav .logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+#logoo {
+  padding: 11px 0;
+  text-align: center;
+  position: relative;
+  color: #ffffff;
+  font-size: 28px;
+}
+#logoo::before,
+#logoo::after {
+    content: ""; /* Necesario para generar contenido en el pseudo-elemento */
+    position: absolute; /* Permite posicionar el elemento */
+    left: 0; /* Ubica el pseudo-elemento desde el borde izquierdo */
+    right: 0; /* Ubica el pseudo-elemento hasta el borde derecho */
+    height: 1px; /* Grosor de la línea */
+    background-color: rgb(253, 253, 253);
+    left: -11%; /* Modifica según la anchura que desees para las líneas */
+    right: -11%; }
+  #logoo::before {
+      top: 0; /* Ubica la línea encima del texto */
+  }
+  
+  #logoo::after {
+      bottom: 0; /* Ubica la línea debajo del texto */
+  }
+
+
+
+nav a {
+  padding: 3%;
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 20px 25px;
+  
+}
+
+#nav34 {
+  background-color: rgb(26, 25, 25);
+  color: white;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.primary, .secondary-full {
+  display: inline-flex;
+  transition: transform 0.3s ease;
+  
+}
+.secondary-full a:hover {
+  color:#14f01c;
+  transform: scale(1.1);
+}
+
+button {
+  background-color: #0e851e;
+  color: white;
+  border: transparent;
+  padding: 15px 25px;
+  font-size: 17px;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+  outline: none;
+  backface-visibility: hidden;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #3ce642;
+  color: black;
+  transform: scale(1.1);
+  backface-visibility: hidden;
+}
+.botone {
+  display: flex;
+  align-self: flex-start;
+  padding-top: 15%;
+  padding-left: 16%;
+}
+
+
+
+.instagram-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  background-color: rgb(249, 250, 196, 0.4);
+}
+
+.instagram-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  width: 80%;
+}
+
+.instagram-item img {
+  width: 180px;
+  max-height: 180px;
+}
+
+.instagram-item {
+  overflow: hidden;
+  border-radius: 15px;
+  z-index: 3;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.instagram-item:hover {
+  transform: scale(1.05);
+}
+
+#seguinsta {
+  display:flex;
+  padding: 10px 20px;
+  background-color: #266928;
+  border: transparent;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.3s linear;
+  font-family:sans-serif;
+  font-size: 19px;
+  cursor: pointer;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+#seguinsta:hover {
+  background-color:  #24f82b;
+  color: black;
+  transform: scale(1.1);
+}
+.instatitu {
+  font-size: 38px;
+  color:#124913;
+  padding-bottom: 1%;
+}
+.seguiinsta {
+  padding-left: 32%;
+  font-family:sans-serif;
+  font-size: 19px;
+  padding-top: 2%;
+  z-index: 10;
+}
+.fa-instagram {
+  font-size: 40px;
+}
+.lineaVerde {
+  position: absolute; 
+  left: 0;
+  bottom: 80px; 
+  width: 40%;
+  height: 4px; 
+  background-color: rgb(14, 92, 14); 
+}
+.lineaVerde2 {
+  position: absolute; 
+  right: 0; 
+  top: 100px; 
+  width: 40%; 
+  height: 4px;
+  background-color: rgb(14, 92, 14); 
+}
+@media only screen and (max-width: 670px) {
+  body {
+    width: 100%;
+}
+  .img11 {
+    width: 330px;
+    height: 100%;
+  }
+  .bienve, .img1 {
+    height: 88%;
+    font-size: 16px;
+    width: 100%;
+  }
+  .bienve {
+    width: 100%;
+  }
+  .whatsapp-button {
+    margin-bottom: 7px;
+    font-size: 17px;
+  }
+  .bienve {
+    display: flex;
+    justify-content: center;
+    padding-top: 75px;
+    margin-top:13px;
+  }
+  .img1 {
+    height: 100%;
+  }
+  .desktop, #logoo, #nav34 {
+    max-width: 100vh;
+    max-height: 15vh;
+    display: flex;
+    font-size: 16px;
+  }
+  #logoo {
+    padding-left: 50px;
+  }
+  #logoo::after, #logoo::before {
+    left: 31%;
+    right: -6%;
+  }
+  .secondary-full a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #sua {
+    display: none;
+  }
+  .container {
+    width: 100%;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 0.3fr 0.5fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "bienve bienve img1 img1" "Nosotros Nosotros Nosotros Nosotros" "imgback imgback imgback imgback" "segui segui segui segui" "footer footer footer footer";
+  }
+  .Noso {
+    font-size: 16px;
+  }
+  .let4 {
+    font-size: 17px;
+  }
+  .Nosotros {
+    height: 100%;
+    width: 100%;
+  }
+  .textno {
+    display: none;
+  }
+  .imgback {
+    height: 100%;
+  }
+  .instagram-grid {
+    width: 100%;
+  }
+  .instagram-section {
+    height: 75vh;
+  }
+  .fot2 {
+    max-width: 140px;
+    max-height: 150px;
+  }
+  .Nosot {
+    padding-left: 40%;
+  }
+  .seguiinsta {
+    margin-top: 25px;
+  }
+  .contenedorfo {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-right: 15px;
+  }
+  .footer, #ubi{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .imgback {
+    background-image: url("../public/img/pafonda.jpg");
+    background-attachment: scroll;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    height: auto;
+    width: 100%;
+    grid-area: imgback;
+  }
+  #ak {
+    display: none;
+  }
+}
+

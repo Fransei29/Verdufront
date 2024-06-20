@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "name": "Manzana",
+      "category": "Fruta",
+      "price": 1.2,
+      "stock": 50,
+      "image": "manzana"
+    },
+    {
+      "id": 2,
+      "name": "Plátano",
+      "category": "Fruta",
+      "price": 0.5,
+      "stock": 100,
+      "image": "banana"
+    },
+    {
+      "id": 3,
+      "name": "Naranja",
+      "category": "Fruta",
+      "price": 0.8,
+      "stock": 80,
+      "image": "naranjaa"
+    },
+    {
+      "id": 4,
+      "name": "Lechuga",
+      "category": "Verdura",
+      "price": 1.0,
+      "stock": 30,
+      "image": "lechuga"
+    },
+    {
+      "id": 5,
+      "name": "Tomate",
+      "category": "Verdura",
+      "price": 1.5,
+      "stock": 60,
+      "image": "tomate"
+    }
+  ]
+  
