@@ -1,63 +1,40 @@
 // src/components/CartLogic.js
 import { useState } from 'react';
+import axios from "axios";
 
 const useCart = () => {
-  const [cart, setCart] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+    const [cart, setCart] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
-  const addToCart = (product) => {
-
-    const existingProductIndex = cart.findIndex(item => item.id === product.id);
-    
+    const addToCart = (product) => {
+    const existingProductIndex = cart.findIndex(item => item.id === product.id);  
     if (existingProductIndex > -1) {
-        // Si el producto ya está en el carrito, actualiza su cantidad
-        const updatedCart = [...cart];
-        updatedCart[existingProductIndex].quantity += 1;
+        const updatedCart = [...cart];  
+        updatedCart[existingProductIndex].quantity += 1;  // Si el producto ya está en el carrito, actualiza su cantidad
         setCart(updatedCart);
     } else {
-        // Si el producto no está en el carrito, agrégalo con cantidad 1
-        setCart([...cart, { ...product, quantity: 1 }]);
+        setCart([...cart, { ...product, quantity: 1 }]);  // Si el producto no está en el carrito, agrégalo con cantidad 1
     }
 
-    // Actualiza el precio total
-    setTotalPrice(totalPrice + product.price);
+    setTotalPrice(totalPrice + product.price);  // Actualiza el precio total
 };
 
-  const handlePurchase = async () => {
-
-    alert('Comprado!');
-
-    const items = cart.map(product => ({
-        product_id: product.id,
-        quantity: product.quantity 
-    }));
-
+    const handlePurchase = async () => {
     try {
-        const response = await fetch('/comprar', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ items }),
-        });
-
-        if (!response.ok) {
-            throw new Error('Error en la solicitud');
-        }
-
-        const data = await response.json();
-        alert('Compra realizada exitosamente!');
-        console.log(data.message);
-        // Limpia el carrito después de la compra
+        console.log("Items being purchased:", cart); // Log de los artículos en el carrito
+        const response = await axios.post("/comprar", { items: cart });
+        console.log("Purchase response:", response.data); // Log de la respuesta del servidor
         setCart([]);
         setTotalPrice(0);
+        return response.data;
     } catch (error) {
-        console.error('Error purchasing products:', error);
-        alert('Error al realizar la compra. Por favor, inténtalo de nuevo.');
+        console.error("Error purchasing products", error);
+        throw error;
     }
+    };
+
+    return { cart, totalPrice, addToCart, handlePurchase };
 };
 
-  return { cart, totalPrice, addToCart, handlePurchase };
-};
 
 export default useCart;
